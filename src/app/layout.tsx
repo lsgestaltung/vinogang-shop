@@ -5,6 +5,9 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { AgeVerification } from "@/components/AgeVerification";
+import { ExitIntentPopup } from "@/components/ExitIntentPopup";
+import { AnalyticsProvider } from "@/components/tracking/Analytics";
+import { OrganizationSchema, WebsiteSchema } from "@/components/seo/StructuredData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,15 +81,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
+      <head>
+        <OrganizationSchema />
+        <WebsiteSchema />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CartProvider>
-          <AgeVerification />
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </CartProvider>
+        <AnalyticsProvider>
+          <CartProvider>
+            <AgeVerification />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+            <ExitIntentPopup />
+          </CartProvider>
+        </AnalyticsProvider>
       </body>
     </html>
   );
