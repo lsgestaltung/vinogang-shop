@@ -35,7 +35,17 @@ export function StickyAddToCart({
 
     setIsAdding(true);
     try {
-      await addItem(selectedVariant.id, 1);
+      const cartItem = {
+        id: product.id,
+        variantId: selectedVariant.id,
+        productId: product.id,
+        title: product.title,
+        variantTitle: selectedVariant.title || selectedVariant.selectedOptions.map(o => o.value).join(" / "),
+        image: product.featuredImage?.url || "",
+        price: selectedVariant.price,
+        handle: product.handle,
+      };
+      addItem(cartItem, 1);
       openCart();
     } catch (error) {
       console.error("Error adding to cart:", error);
@@ -183,7 +193,17 @@ export function FloatingAddToCart({
 
   const handleClick = async () => {
     if (!selectedVariant?.availableForSale) return;
-    await addItem(selectedVariant.id, 1);
+    const cartItem = {
+      id: product.id,
+      variantId: selectedVariant.id,
+      productId: product.id,
+      title: product.title,
+      variantTitle: selectedVariant.title || selectedVariant.selectedOptions.map(o => o.value).join(" / "),
+      image: product.featuredImage?.url || "",
+      price: selectedVariant.price,
+      handle: product.handle,
+    };
+    addItem(cartItem, 1);
     openCart();
   };
 
