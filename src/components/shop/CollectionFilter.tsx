@@ -25,13 +25,13 @@ export function CollectionFilter() {
   };
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex gap-1 sm:gap-2">
       {filters.map((filter) => (
         <button
           key={filter.value}
           onClick={() => handleFilterChange(filter.value)}
           className={cn(
-            "px-6 py-3 border-2 text-sm font-bold uppercase tracking-[0.15em] transition-all",
+            "px-3 sm:px-6 py-2 sm:py-3 border-2 text-xs sm:text-sm font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em] transition-all whitespace-nowrap",
             currentCollection === filter.value
               ? "border-gold bg-gold text-black"
               : "border-gray-300 hover:border-gold"
