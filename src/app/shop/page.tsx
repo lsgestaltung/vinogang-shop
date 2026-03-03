@@ -25,13 +25,16 @@ const createClothingVariants = (baseId: string) => {
   return sizes.flatMap((size, sizeIdx) =>
     colors.map((color, colorIdx) => ({
       id: `${baseId}-${sizeIdx}-${colorIdx}`,
+      title: `${size} / ${color}`,
       availableForSale: true,
+      quantityAvailable: 10,
       price: 35,
       compareAtPrice: null,
       selectedOptions: [
         { name: "Größe", value: size },
         { name: "Farbe", value: color },
       ],
+      image: null,
     }))
   );
 };
