@@ -40,7 +40,7 @@ export default function NewsletterPage() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-20">
+      <div className="flex-1 flex items-center justify-center px-4 pt-32 pb-20">
         <div className="relative z-10 max-w-lg w-full text-center">
           {/* Logo */}
           <div className="mb-12">

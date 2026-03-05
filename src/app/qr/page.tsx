@@ -14,7 +14,7 @@ export default function QRCodePage() {
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(newsletterUrl)}&bgcolor=000000&color=DDB55B`;
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 pt-32 pb-12">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
