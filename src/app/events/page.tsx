@@ -11,6 +11,19 @@ export const metadata: Metadata = {
 
 const events = [
   {
+    id: 0,
+    title: "Trinkhalle X Fleur",
+    subtitle: "mit Vinogang",
+    date: "20. April 2025",
+    time: "Ostersonntag",
+    location: "Baden-Baden",
+    venue: "Trinkhalle",
+    description:
+      "Ostersonntag in Baden-Baden: Trinkhalle X Fleur und Vinogang laden ein. Eine besondere Kombination aus Wein, Genuss und Gemeinschaft.",
+    image: "/images/vibe/event-1.jpg",
+    status: "upcoming" as const,
+  },
+  {
     id: 1,
     title: "Vinogang Night",
     subtitle: "Season Opening 2025",

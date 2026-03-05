@@ -18,7 +18,7 @@ export function Hero() {
 
   return (
     <>
-    <section className="relative min-h-[75vh] md:min-h-[80vh] bg-white overflow-hidden">
+    <section className="relative min-h-[85vh] md:min-h-[90vh] bg-white overflow-hidden">
       {/* Mobile Hero Image Background - Full viewport width */}
       <div className="absolute inset-0 z-0 lg:hidden">
         <Image
@@ -67,9 +67,9 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container-wide relative z-10 min-h-[75vh] md:min-h-[80vh] flex flex-col">
+      <div className="container-wide relative z-10 min-h-[85vh] md:min-h-[90vh] flex flex-col">
         {/* Mobile Layout */}
-        <div className="lg:hidden relative flex flex-col min-h-[75vh]">
+        <div className="lg:hidden relative flex flex-col min-h-[85vh]">
 
           {/* Content */}
           <div className="relative z-10 flex-1 flex flex-col justify-center text-center px-4 pt-16 pb-20">
@@ -125,7 +125,7 @@ export function Hero() {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:flex min-h-[80vh] items-center">
+        <div className="hidden lg:flex min-h-[90vh] items-center">
           <div className="grid grid-cols-2 gap-16 w-full py-12">
             {/* Left Content */}
             <div className="flex flex-col justify-center">

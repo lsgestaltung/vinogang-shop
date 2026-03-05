@@ -8,6 +8,15 @@ import { cn } from "@/lib/utils";
 
 const upcomingEvents = [
   {
+    id: 0,
+    title: "Trinkhalle X Fleur",
+    date: "20. April",
+    year: "2025",
+    location: "Baden-Baden",
+    image: "/images/vibe/insta-2.jpg",
+    type: "Ostersonntag",
+  },
+  {
     id: 1,
     title: "Vinogang Night",
     date: "15. März",
@@ -15,15 +24,6 @@ const upcomingEvents = [
     location: "Berlin",
     image: "/images/vibe/insta-2.jpg",
     type: "Wine & Music",
-  },
-  {
-    id: 2,
-    title: "Wine & Beats",
-    date: "22. März",
-    year: "2025",
-    location: "München",
-    image: "/images/vibe/insta-3.jpg",
-    type: "Tasting Event",
   },
 ];
 
