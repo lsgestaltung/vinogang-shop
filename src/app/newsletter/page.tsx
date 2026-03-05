@@ -27,7 +27,7 @@ export default function NewsletterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
+    <div className="min-h-screen bg-black text-white flex flex-col pt-24">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
@@ -40,7 +40,7 @@ export default function NewsletterPage() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex items-center justify-center px-4 pt-32 pb-20">
+      <div className="flex-1 flex items-center justify-center px-4 py-12">
         <div className="relative z-10 max-w-lg w-full text-center">
           {/* Logo */}
           <div className="mb-12">
