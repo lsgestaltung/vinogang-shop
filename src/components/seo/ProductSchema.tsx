@@ -6,7 +6,7 @@ interface ProductSchemaProps {
 
 export function ProductSchema({ product }: ProductSchemaProps) {
   const variant = product.variants[0];
-  const price = variant?.price?.amount || "0";
+  const price = variant?.price?.toString() || "0";
   const availability = variant?.availableForSale
     ? "https://schema.org/InStock"
     : "https://schema.org/OutOfStock";
