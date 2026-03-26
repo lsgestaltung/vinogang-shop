@@ -19,15 +19,27 @@ export function Hero() {
   return (
     <>
     <section className="relative min-h-[85vh] md:min-h-[90vh] bg-white overflow-hidden">
-      {/* Mobile Hero Image Background - Full viewport width */}
+      {/* Mobile Hero Image Background - Optimized for fast loading */}
       <div className="absolute inset-0 z-0 lg:hidden">
-        <Image
-          src="/images/hero.png"
-          alt=""
-          fill
-          className="object-cover"
-          priority
-        />
+        <picture>
+          <source
+            media="(max-width: 640px)"
+            srcSet="/images/hero-mobile.jpg"
+          />
+          <source
+            media="(max-width: 1024px)"
+            srcSet="/images/hero-tablet.jpg"
+          />
+          <Image
+            src="/images/hero-mobile.jpg"
+            alt=""
+            fill
+            className="object-cover"
+            priority
+            quality={85}
+            sizes="100vw"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-white" />
       </div>
 
