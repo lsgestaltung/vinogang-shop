@@ -382,6 +382,7 @@ export function WineProductDetail({ product }: WineProductDetailProps) {
             loop
             playsInline
             webkit-playsinline="true"
+            preload="metadata"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ minWidth: '100%', minHeight: '100%' }}
           >
@@ -440,6 +441,7 @@ export function WineProductDetail({ product }: WineProductDetailProps) {
                 muted
                 loop
                 playsInline
+                preload="metadata"
                 className="absolute inset-0 w-full h-full object-cover"
               >
                 <source src={wineInfo.video} type="video/mp4" />
