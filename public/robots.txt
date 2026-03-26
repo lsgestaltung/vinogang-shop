@@ -1,0 +1,9 @@
+# Vinogang Robots.txt
+User-agent: *
+Allow: /
+
+# Block admin/api areas
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://vinogang.de/sitemap.xml

@@ -4,6 +4,7 @@ import type { Product } from "@/lib/shopify";
 import { WineProductDetail } from "./WineProductDetail";
 import { ClothingProductDetail } from "./ClothingProductDetail";
 import { ProductGrid } from "@/components/shop/ProductGrid";
+import { ProductSchema } from "@/components/seo/ProductSchema";
 import type { Metadata } from "next";
 
 interface ProductPageProps {
@@ -187,6 +188,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (placeholderProduct) {
     return (
       <div>
+        <ProductSchema product={placeholderProduct} />
         <ClothingProductDetail product={placeholderProduct} />
       </div>
     );
@@ -223,6 +225,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <div>
+      {/* SEO: Product Schema */}
+      <ProductSchema product={product} />
+
       {/* Product Detail */}
       {isWine ? (
         <WineProductDetail product={product} />

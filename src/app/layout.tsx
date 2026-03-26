@@ -21,6 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://vinogang.de"),
   title: {
     default: "Vinogang | Urban Wine Collective",
     template: "%s | Vinogang",
