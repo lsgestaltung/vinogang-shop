@@ -13,7 +13,7 @@ const founders = [
     image: "/images/gründer/jakob_bimmerle.jpeg",
   },
   {
-    name: "Mark Keitel",
+    name: "Marc Keitel",
     role: "Co-Founder",
     initials: "MK",
     quote: "Qualität ohne Kompromisse.",

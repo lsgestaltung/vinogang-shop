@@ -16,7 +16,7 @@ export function OrganizationSchema() {
     foundingDate: "2023",
     founders: [
       { "@type": "Person", name: "Jakob Bimmerle" },
-      { "@type": "Person", name: "Mark Keitel" },
+      { "@type": "Person", name: "Marc Keitel" },
       { "@type": "Person", name: "Kevin Gradito" },
     ],
     sameAs: [
