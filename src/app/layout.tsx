@@ -5,9 +5,10 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { AgeVerification } from "@/components/AgeVerification";
-import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { AnalyticsProvider } from "@/components/tracking/Analytics";
 import { OrganizationSchema, WebsiteSchema } from "@/components/seo/StructuredData";
+import { CookieConsentProvider } from "@/contexts/CookieConsentContext";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -88,15 +89,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AnalyticsProvider>
-          <CartProvider>
-            <AgeVerification />
-            <Header />
-            <main>{children}</main>
-            <Footer />
-            <ExitIntentPopup />
-          </CartProvider>
-        </AnalyticsProvider>
+        <CookieConsentProvider>
+          <AnalyticsProvider>
+            <CartProvider>
+              <AgeVerification />
+              <Header />
+              <main>{children}</main>
+              <Footer />
+              <CookieConsent />
+            </CartProvider>
+          </AnalyticsProvider>
+        </CookieConsentProvider>
       </body>
     </html>
   );

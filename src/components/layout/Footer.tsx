@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 
 const footerLinks = {
   shop: [
@@ -44,41 +43,12 @@ const socialLinks = [
 ];
 
 export function Footer() {
-  const [email, setEmail] = useState("");
-
   return (
     <footer className="bg-black text-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 border border-gold/10 rotate-45 translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 left-0 w-64 h-64 border border-gold/10 -rotate-12 -translate-x-1/2 translate-y-1/2" />
-      </div>
-
-      {/* Newsletter Section */}
-      <div className="container-wide py-32 md:py-40 border-b border-gray-800 relative">
-        <div className="max-w-2xl mx-auto text-center">
-          <h3 className="text-4xl md:text-5xl font-black mb-8">
-            JOIN THE <span className="text-gold">GANG</span>
-          </h3>
-          <p className="text-gray-400 mb-12 text-lg">
-            Exklusive Drops, Events & mehr direkt in deinem Postfach.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-8">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Deine E-Mail"
-              className="flex-1 px-4 py-3 bg-white/5 border border-gray-700 text-white placeholder:text-gray-500 focus:outline-none focus:border-gold transition-colors"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 bg-gold text-black font-bold uppercase tracking-wider text-sm hover:bg-white transition-colors"
-            >
-              Anmelden
-            </button>
-          </form>
-        </div>
       </div>
 
       {/* Main Footer Content */}

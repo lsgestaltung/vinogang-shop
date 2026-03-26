@@ -3,6 +3,7 @@
 import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, Suspense } from "react";
+import { useCookieConsent } from "@/contexts/CookieConsentContext";
 
 // Google Tag Manager
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
@@ -371,15 +372,23 @@ function RouteChangeTracker() {
 
 // Main Analytics Provider Component
 export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
+  const { preferences } = useCookieConsent();
+
+  // Only load tracking scripts if user has given consent
+  const canLoadAnalytics = preferences?.analytics === true;
+  const canLoadMarketing = preferences?.marketing === true;
+
   return (
     <>
-      <GoogleTagManager />
-      <MetaPixel />
-      <TikTokPixel />
-      <PinterestTag />
-      <Suspense fallback={null}>
-        <RouteChangeTracker />
-      </Suspense>
+      {canLoadAnalytics && <GoogleTagManager />}
+      {canLoadMarketing && <MetaPixel />}
+      {canLoadMarketing && <TikTokPixel />}
+      {canLoadMarketing && <PinterestTag />}
+      {canLoadAnalytics && (
+        <Suspense fallback={null}>
+          <RouteChangeTracker />
+        </Suspense>
+      )}
       {children}
     </>
   );

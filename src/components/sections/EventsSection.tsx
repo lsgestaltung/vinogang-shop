@@ -10,20 +10,11 @@ const upcomingEvents = [
   {
     id: 0,
     title: "Trinkhalle X Fleur",
-    date: "20. April",
-    year: "2025",
+    date: "5. April",
+    year: "2026",
     location: "Baden-Baden",
-    image: "/images/vibe/insta-2.jpg",
+    image: "/images/events/ostersonntag.png",
     type: "Ostersonntag",
-  },
-  {
-    id: 1,
-    title: "Vinogang Night",
-    date: "15. März",
-    year: "2025",
-    location: "Berlin",
-    image: "/images/vibe/insta-2.jpg",
-    type: "Wine & Music",
   },
 ];
 
@@ -63,7 +54,7 @@ export function EventsSection() {
         </div>
 
         {/* Events Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="max-w-2xl mx-auto">
           {upcomingEvents.map((event, index) => (
             <div
               key={event.id}

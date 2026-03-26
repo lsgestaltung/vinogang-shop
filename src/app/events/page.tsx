@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { Newsletter } from "@/components/sections/Newsletter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,53 +13,14 @@ const events = [
     id: 0,
     title: "Trinkhalle X Fleur",
     subtitle: "mit Vinogang",
-    date: "20. April 2025",
-    time: "Ostersonntag",
+    date: "5. April 2026",
+    time: "16:00 Uhr",
     location: "Baden-Baden",
     venue: "Trinkhalle",
     description:
       "Ostersonntag in Baden-Baden: Trinkhalle X Fleur und Vinogang laden ein. Eine besondere Kombination aus Wein, Genuss und Gemeinschaft.",
-    image: "/images/vibe/event-1.jpg",
+    image: "/images/events/ostersonntag.png",
     status: "upcoming" as const,
-  },
-  {
-    id: 1,
-    title: "Vinogang Night",
-    subtitle: "Season Opening 2025",
-    date: "15. März 2025",
-    time: "20:00 Uhr",
-    location: "Berlin",
-    venue: "Ritter Butzke",
-    description:
-      "Die erste Vinogang Night des Jahres. Erlebe eine Nacht voller Wein, Beats und Gemeinschaft.",
-    image: "/images/vibe/event-1.jpg",
-    status: "upcoming" as const,
-  },
-  {
-    id: 2,
-    title: "Wine & Beats",
-    subtitle: "Munich Edition",
-    date: "22. März 2025",
-    time: "21:00 Uhr",
-    location: "München",
-    venue: "Blitz Club",
-    description:
-      "Vinogang kommt nach München. Eine Nacht, in der Wein auf elektronische Beats trifft.",
-    image: "/images/vibe/event-2.jpg",
-    status: "upcoming" as const,
-  },
-  {
-    id: 3,
-    title: "Rooftop Tasting",
-    subtitle: "Summer Series",
-    date: "15. Juni 2025",
-    time: "18:00 Uhr",
-    location: "Hamburg",
-    venue: "Clouds",
-    description:
-      "Wein-Tasting mit Blick über die Stadt. Die perfekte Mischung aus Genuss und Ausblick.",
-    image: "/images/vibe/event-3.jpg",
-    status: "coming-soon" as const,
   },
 ];
 
@@ -199,9 +159,6 @@ export default function EventsPage() {
           </Button>
         </div>
       </section>
-
-      {/* Newsletter */}
-      <Newsletter />
     </>
   );
 }

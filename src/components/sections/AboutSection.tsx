@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { cn } from "@/lib/utils";
 
@@ -9,18 +10,21 @@ const founders = [
     role: "Co-Founder",
     initials: "JB",
     quote: "Wein verbindet Menschen.",
+    image: "/images/gründer/jakob_bimmerle.jpeg",
   },
   {
     name: "Mark Keitel",
     role: "Co-Founder",
     initials: "MK",
     quote: "Qualität ohne Kompromisse.",
+    image: "/images/gründer/marc_keitel.jpeg",
   },
   {
     name: "Kevin Gradito",
     role: "Co-Founder",
     initials: "KG",
     quote: "Community ist alles.",
+    image: "/images/gründer/kevin_gradito.jpg",
   },
 ];
 
@@ -68,67 +72,44 @@ export function AboutSection() {
               )}
               style={{ transitionDelay: `${(index + 1) * 150}ms` }}
             >
-              {/* Placeholder Avatar */}
-              <div className="relative aspect-[3/4] overflow-hidden bg-black mb-6 group-hover:bg-gray-900 transition-colors duration-300">
-                {/* Initials */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-6xl md:text-7xl font-black text-gold/20 group-hover:text-gold/40 transition-colors duration-300">
-                    {founder.initials}
-                  </span>
-                </div>
+              {/* Founder Image */}
+              <div className="relative aspect-[3/4] overflow-hidden bg-black mb-6">
+                <Image
+                  src={founder.image}
+                  alt={founder.name}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                />
 
-                {/* Person Icon */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative">
-                    {/* Head */}
-                    <div className="w-16 h-16 md:w-20 md:h-20 border-2 border-gold/50 group-hover:border-gold transition-colors duration-300 flex items-center justify-center mb-2">
-                      <svg
-                        className="w-10 h-10 md:w-12 md:h-12 text-gold/50 group-hover:text-gold transition-colors duration-300"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="square"
-                          strokeWidth={1.5}
-                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all duration-500" />
 
                 {/* Decorative corners */}
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-4 z-10">
                   <div className="w-6 h-px bg-gold/30 group-hover:bg-gold/60 transition-colors" />
                   <div className="w-px h-6 bg-gold/30 group-hover:bg-gold/60 transition-colors" />
                 </div>
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-4 right-4 z-10">
                   <div className="w-6 h-px bg-gold/30 group-hover:bg-gold/60 transition-colors ml-auto" />
                   <div className="w-px h-6 bg-gold/30 group-hover:bg-gold/60 transition-colors ml-auto" />
                 </div>
-                <div className="absolute bottom-4 left-4">
+                <div className="absolute bottom-4 left-4 z-10">
                   <div className="w-px h-6 bg-gold/30 group-hover:bg-gold/60 transition-colors" />
                   <div className="w-6 h-px bg-gold/30 group-hover:bg-gold/60 transition-colors" />
                 </div>
-                <div className="absolute bottom-4 right-4">
+                <div className="absolute bottom-4 right-4 z-10">
                   <div className="w-px h-6 bg-gold/30 group-hover:bg-gold/60 transition-colors ml-auto" />
                   <div className="w-6 h-px bg-gold/30 group-hover:bg-gold/60 transition-colors ml-auto" />
                 </div>
 
                 {/* Gold border on hover */}
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-gold transition-all duration-300" />
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-gold transition-all duration-300 z-10" />
 
                 {/* Quote on hover */}
-                <div className="absolute bottom-8 left-6 right-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                  <p className="text-gold text-sm italic text-center">
+                <div className="absolute inset-0 flex items-center justify-center bg-black/80 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
+                  <p className="text-gold text-lg md:text-xl italic text-center px-8">
                     &ldquo;{founder.quote}&rdquo;
                   </p>
-                </div>
-
-                {/* "Foto folgt" label */}
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-gold/10 border border-gold/30">
-                  <span className="text-[10px] text-gold/60 uppercase tracking-[0.2em]">Foto folgt</span>
                 </div>
               </div>
 
