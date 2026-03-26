@@ -65,10 +65,18 @@ export function CookieConsentProvider({ children }: { children: React.ReactNode 
   };
 
   const savePreferences = (prefs: CookiePreferences) => {
-    setPreferences(prefs);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+    // First hide UI immediately for better UX
     setShowBanner(false);
     setShowSettings(false);
+
+    // Save to localStorage
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+
+    // Defer preference state update to next tick to prevent UI blocking
+    // This allows React to finish rendering before loading heavy scripts
+    setTimeout(() => {
+      setPreferences(prefs);
+    }, 100);
   };
 
   const openSettings = () => {

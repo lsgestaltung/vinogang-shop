@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Sold Out Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+    }
+
+    .container {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      height: 100%;
+      gap: 4px;
+      background: #DDB55B;
+      padding: 4px;
+    }
+
+    .cell {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cell-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cell-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .cell-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+    }
+
+    .main-text {
+      font-size: 72px;
+      font-weight: 900;
+      color: #DDB55B;
+      text-transform: uppercase;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .sub-text {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-top: 15px;
+    }
+
+    .number-cell {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+    }
+
+    .big-number {
+      font-size: 180px;
+      font-weight: 900;
+      color: #DDB55B;
+      line-height: 1;
+    }
+
+    .number-label {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+    }
+
+    .logo-cell {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      gap: 30px;
+    }
+
+    .logo {
+      width: 180px;
+    }
+
+    .url {
+      font-size: 16px;
+      font-weight: 700;
+      color: #DDB55B;
+      letter-spacing: 0.15em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="grid">
+      <div class="cell">
+        <img src="/images/models/lookbook/communion/female-3.jpg" class="cell-image" alt="">
+        <div class="cell-overlay"></div>
+      </div>
+
+      <div class="cell cell-text">
+        <div class="main-text">Sold<br>Out</div>
+        <div class="sub-text">Soon</div>
+      </div>
+
+      <div class="cell number-cell">
+        <div class="big-number">70</div>
+        <div class="number-label">Remaining</div>
+      </div>
+
+      <div class="cell logo-cell">
+        <img src="/images/logo/logo-gold.png" class="logo" alt="Vinogang">
+        <div class="url">clothing.vinogang.com</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

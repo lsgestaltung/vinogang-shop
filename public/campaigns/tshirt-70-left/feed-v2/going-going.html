@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Going Going</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+    }
+
+    .container {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: #DDB55B;
+    }
+
+    .background-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85%;
+      height: 85%;
+      object-fit: cover;
+    }
+
+    .frame {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85%;
+      height: 85%;
+      border: 4px solid #000;
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: #DDB55B;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px;
+    }
+
+    .logo {
+      height: 35px;
+      filter: brightness(0);
+    }
+
+    .tag {
+      font-size: 14px;
+      font-weight: 900;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .bottom-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: #DDB55B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .bottom-text {
+      font-size: 32px;
+      font-weight: 900;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .bottom-text.strike {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .center-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background: rgba(0,0,0,0.85);
+      padding: 50px 80px;
+    }
+
+    .center-number {
+      font-size: 150px;
+      font-weight: 900;
+      color: #DDB55B;
+      line-height: 1;
+    }
+
+    .center-text {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <img src="/images/logo/logo-black.png" class="logo" alt="Vinogang">
+      <div class="tag">clothing.vinogang.com</div>
+    </div>
+
+    <img src="/images/models/lookbook/barrel/female-2.jpg" class="background-image" alt="">
+    <div class="frame"></div>
+
+    <div class="center-overlay">
+      <div class="center-number">70</div>
+      <div class="center-text">Left in Stock</div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="bottom-text strike">Going</div>
+      <div class="bottom-text strike">Going</div>
+      <div class="bottom-text">Gone?</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Don't Sleep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+    }
+
+    .container {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .background-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      filter: grayscale(30%);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%);
+    }
+
+    .content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px;
+    }
+
+    .logo {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      width: 140px;
+    }
+
+    .main-headline {
+      font-size: 160px;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 0.85;
+      letter-spacing: -0.03em;
+      margin-bottom: 30px;
+    }
+
+    .main-headline span {
+      color: #DDB55B;
+      display: block;
+    }
+
+    .counter-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .counter-line {
+      width: 80px;
+      height: 3px;
+      background: #DDB55B;
+    }
+
+    .counter-text {
+      font-size: 28px;
+      font-weight: 900;
+      color: #DDB55B;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .cta {
+      background: #DDB55B;
+      color: #000;
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 24px 50px;
+    }
+
+    .url {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+    }
+
+    .corner-tl {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      width: 60px;
+      height: 60px;
+      border-top: 3px solid #DDB55B;
+      border-left: 3px solid #DDB55B;
+    }
+
+    .corner-br {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-bottom: 3px solid #DDB55B;
+      border-right: 3px solid #DDB55B;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="/images/models/lookbook/reben/female-2.jpg" class="background-image" alt="">
+    <div class="overlay"></div>
+
+    <div class="corner-tl"></div>
+    <div class="corner-br"></div>
+
+    <div class="content">
+      <img src="/images/logo/logo-gold.png" class="logo" alt="Vinogang">
+
+      <div class="main-headline">
+        Don't<br><span>Sleep</span>
+      </div>
+
+      <div class="counter-row">
+        <div class="counter-line"></div>
+        <div class="counter-text">Nur noch 70 Stück</div>
+        <div class="counter-line"></div>
+      </div>
+
+      <div class="cta-row">
+        <div class="cta">Shop Now</div>
+        <div class="url">clothing.vinogang.com</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

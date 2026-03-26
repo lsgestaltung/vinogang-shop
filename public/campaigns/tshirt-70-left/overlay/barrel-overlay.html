@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Barrel Shirt - Overlay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: transparent;
+    }
+
+    .container {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 60px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .logo {
+      width: 200px;
+    }
+
+    .urgency {
+      position: absolute;
+      top: 50%;
+      left: 60px;
+      right: 60px;
+      transform: translateY(-50%);
+      text-align: center;
+    }
+
+    .urgency-number {
+      font-size: 280px;
+      font-weight: 900;
+      color: #DDB55B;
+      line-height: 0.85;
+      text-shadow: 0 0 60px rgba(221,181,91,0.5), 0 4px 20px rgba(0,0,0,0.8);
+    }
+
+    .urgency-text {
+      font-size: 48px;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-top: 20px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .bottom {
+      margin-top: auto;
+      text-align: center;
+    }
+
+    .product-name {
+      font-size: 56px;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .product-type {
+      font-size: 24px;
+      font-weight: 700;
+      color: #DDB55B;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      margin-bottom: 40px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .cta {
+      display: inline-block;
+      background: #DDB55B;
+      color: #000;
+      font-size: 32px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 28px 60px;
+    }
+
+    .swipe-up {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .swipe-up span {
+      font-size: 22px;
+      font-weight: 700;
+      color: #DDB55B;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .line-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: #DDB55B;
+    }
+
+    .line-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: #DDB55B;
+    }
+
+    .corner-tl, .corner-br {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+    }
+
+    .corner-tl {
+      top: 40px;
+      left: 40px;
+      border-top: 4px solid #DDB55B;
+      border-left: 4px solid #DDB55B;
+    }
+
+    .corner-br {
+      bottom: 40px;
+      right: 40px;
+      border-bottom: 4px solid #DDB55B;
+      border-right: 4px solid #DDB55B;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="line-top"></div>
+    <div class="line-bottom"></div>
+    <div class="corner-tl"></div>
+    <div class="corner-br"></div>
+
+    <div class="content">
+      <div class="top">
+        <img src="/images/logo/logo-gold.png" class="logo" alt="Vinogang">
+      </div>
+
+      <div class="urgency">
+        <div class="urgency-number">70</div>
+        <div class="urgency-text">Stück verfügbar</div>
+      </div>
+
+      <div class="bottom">
+        <div class="product-name">Barrel Shirt</div>
+        <div class="product-type">Bald ausverkauft</div>
+        <div class="cta">Jetzt sichern</div>
+
+        <div class="swipe-up">
+          <span>clothing.vinogang.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

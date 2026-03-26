@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Communion Shirt - Feed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+    }
+
+    .container {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .background-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.75;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(0,0,0,0.8) 0%,
+        rgba(0,0,0,0.3) 50%,
+        rgba(0,0,0,0.8) 100%
+      );
+    }
+
+    .content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 50px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .logo {
+      width: 160px;
+      filter: brightness(0) invert(1);
+    }
+
+    .badge {
+      background: #DDB55B;
+      color: #000;
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 12px 20px;
+    }
+
+    .center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .urgency-label {
+      font-size: 22px;
+      font-weight: 700;
+      color: #DDB55B;
+      text-transform: uppercase;
+      letter-spacing: 0.5em;
+      margin-bottom: 10px;
+    }
+
+    .urgency-number {
+      font-size: 200px;
+      font-weight: 900;
+      color: #DDB55B;
+      line-height: 0.9;
+      text-shadow: 0 0 80px rgba(221,181,91,0.6);
+    }
+
+    .urgency-text {
+      font-size: 36px;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      margin-top: 10px;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .product-info {
+      text-align: left;
+    }
+
+    .product-name {
+      font-size: 40px;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .product-type {
+      font-size: 18px;
+      font-weight: 700;
+      color: #DDB55B;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+    }
+
+    .cta {
+      background: #DDB55B;
+      color: #000;
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 20px 40px;
+    }
+
+    .line-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: #DDB55B;
+    }
+
+    .line-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: #DDB55B;
+    }
+
+    .line-left {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 6px;
+      background: #DDB55B;
+    }
+
+    .line-right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 6px;
+      background: #DDB55B;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="/images/models/lookbook/communion/female-2.jpg" class="background-image" alt="">
+    <div class="overlay"></div>
+
+    <div class="line-top"></div>
+    <div class="line-bottom"></div>
+    <div class="line-left"></div>
+    <div class="line-right"></div>
+
+    <div class="content">
+      <div class="top">
+        <img src="/images/logo/logo-white.png" class="logo" alt="Vinogang">
+              </div>
+
+      <div class="center">
+        <div class="urgency-label">Nur noch</div>
+        <div class="urgency-number">70</div>
+        <div class="urgency-text">Stück verfügbar</div>
+      </div>
+
+      <div class="bottom">
+        <div class="product-info">
+          <div class="product-name">Communion Shirt</div>
+          <div class="product-type">Bald ausverkauft</div>
+        </div>
+        <div class="cta">Shop Now</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

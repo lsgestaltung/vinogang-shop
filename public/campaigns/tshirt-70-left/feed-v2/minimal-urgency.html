@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Minimal Urgency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+    }
+
+    .container {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px;
+    }
+
+    .logo {
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      width: 140px;
+    }
+
+    .main-content {
+      text-align: center;
+    }
+
+    .pre-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.5em;
+      margin-bottom: 30px;
+    }
+
+    .big-number {
+      font-size: 350px;
+      font-weight: 900;
+      color: #DDB55B;
+      line-height: 0.8;
+      letter-spacing: -0.05em;
+    }
+
+    .post-text {
+      font-size: 48px;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-top: 20px;
+    }
+
+    .divider {
+      width: 100px;
+      height: 4px;
+      background: #DDB55B;
+      margin: 50px auto;
+    }
+
+    .cta-section {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .cta {
+      background: #DDB55B;
+      color: #000;
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 20px 45px;
+    }
+
+    .url {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+    }
+
+    .bottom-accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, transparent, #DDB55B, transparent);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="/images/logo/logo-gold.png" class="logo" alt="Vinogang">
+
+    <div class="main-content">
+      <div class="pre-text">Vinogang Clothing</div>
+      <div class="big-number">70</div>
+      <div class="post-text">Shirts Left</div>
+
+      <div class="divider"></div>
+
+      <div class="cta-section">
+        <div class="cta">Shop Now</div>
+        <div class="url">clothing.vinogang.com</div>
+      </div>
+    </div>
+
+    <div class="bottom-accent"></div>
+  </div>
+</body>
+</html>

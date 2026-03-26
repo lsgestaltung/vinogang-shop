@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, Suspense } from "react";
+import { useEffect, Suspense, useState } from "react";
 import { useCookieConsent } from "@/contexts/CookieConsentContext";
 
 // Google Tag Manager
@@ -49,7 +49,7 @@ export function MetaPixel() {
   return (
     <Script
       id="meta-pixel"
-      strategy="afterInteractive"
+      strategy="lazyOnload"
       dangerouslySetInnerHTML={{
         __html: `
           !function(f,b,e,v,n,t,s)
@@ -77,7 +77,7 @@ export function TikTokPixel() {
   return (
     <Script
       id="tiktok-pixel"
-      strategy="afterInteractive"
+      strategy="lazyOnload"
       dangerouslySetInnerHTML={{
         __html: `
           !function (w, d, t) {
@@ -100,7 +100,7 @@ export function PinterestTag() {
   return (
     <Script
       id="pinterest-tag"
-      strategy="afterInteractive"
+      strategy="lazyOnload"
       dangerouslySetInnerHTML={{
         __html: `
           !function(e){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version="3.0";var t=document.createElement("script");t.async=!0,t.src=e;var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
@@ -373,17 +373,44 @@ function RouteChangeTracker() {
 // Main Analytics Provider Component
 export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
   const { preferences } = useCookieConsent();
+  const [loadStage, setLoadStage] = useState(0);
 
   // Only load tracking scripts if user has given consent
   const canLoadAnalytics = preferences?.analytics === true;
   const canLoadMarketing = preferences?.marketing === true;
 
+  // Stagger script loading to prevent performance issues
+  useEffect(() => {
+    if (!canLoadAnalytics && !canLoadMarketing) {
+      setLoadStage(0);
+      return;
+    }
+
+    // Stage 1: Load immediately (GTM)
+    setLoadStage(1);
+
+    // Stage 2: Load after 500ms (Meta Pixel)
+    const timer1 = setTimeout(() => setLoadStage(2), 500);
+
+    // Stage 3: Load after 1000ms (TikTok)
+    const timer2 = setTimeout(() => setLoadStage(3), 1000);
+
+    // Stage 4: Load after 1500ms (Pinterest)
+    const timer3 = setTimeout(() => setLoadStage(4), 1500);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  }, [canLoadAnalytics, canLoadMarketing]);
+
   return (
     <>
-      {canLoadAnalytics && <GoogleTagManager />}
-      {canLoadMarketing && <MetaPixel />}
-      {canLoadMarketing && <TikTokPixel />}
-      {canLoadMarketing && <PinterestTag />}
+      {canLoadAnalytics && loadStage >= 1 && <GoogleTagManager />}
+      {canLoadMarketing && loadStage >= 2 && <MetaPixel />}
+      {canLoadMarketing && loadStage >= 3 && <TikTokPixel />}
+      {canLoadMarketing && loadStage >= 4 && <PinterestTag />}
       {canLoadAnalytics && (
         <Suspense fallback={null}>
           <RouteChangeTracker />

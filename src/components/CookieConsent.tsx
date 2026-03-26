@@ -65,13 +65,13 @@ export function CookieConsent() {
                   </p>
                 </div>
 
-                {/* Actions */}
+                {/* Actions - optimized for mobile touch */}
                 <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
                   <Button
                     variant="outline-gold"
                     size="sm"
                     onClick={openSettings}
-                    className="whitespace-nowrap"
+                    className="whitespace-nowrap touch-manipulation active:scale-95 transition-transform"
                   >
                     Einstellungen
                   </Button>
@@ -79,7 +79,7 @@ export function CookieConsent() {
                     variant="secondary"
                     size="sm"
                     onClick={acceptNecessary}
-                    className="whitespace-nowrap"
+                    className="whitespace-nowrap touch-manipulation active:scale-95 transition-transform"
                   >
                     Nur Notwendige
                   </Button>
@@ -87,7 +87,7 @@ export function CookieConsent() {
                     variant="primary"
                     size="sm"
                     onClick={acceptAll}
-                    className="whitespace-nowrap"
+                    className="whitespace-nowrap touch-manipulation active:scale-95 transition-transform"
                   >
                     Alle akzeptieren
                   </Button>
@@ -150,11 +150,12 @@ export function CookieConsent() {
                   <div className="flex-shrink-0">
                     <button
                       onClick={() => handleToggle("analytics")}
-                      className={`w-12 h-6 rounded-full relative transition-colors ${
+                      className={`w-12 h-6 rounded-full relative transition-colors touch-manipulation active:scale-95 ${
                         localPreferences.analytics
                           ? "bg-gold"
                           : "bg-gray-300"
                       }`}
+                      aria-label="Toggle analytics cookies"
                     >
                       <div
                         className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${
@@ -182,11 +183,12 @@ export function CookieConsent() {
                   <div className="flex-shrink-0">
                     <button
                       onClick={() => handleToggle("marketing")}
-                      className={`w-12 h-6 rounded-full relative transition-colors ${
+                      className={`w-12 h-6 rounded-full relative transition-colors touch-manipulation active:scale-95 ${
                         localPreferences.marketing
                           ? "bg-gold"
                           : "bg-gray-300"
                       }`}
+                      aria-label="Toggle marketing cookies"
                     >
                       <div
                         className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${
@@ -217,7 +219,7 @@ export function CookieConsent() {
                 variant="secondary"
                 size="md"
                 onClick={closeSettings}
-                className="flex-1"
+                className="flex-1 touch-manipulation active:scale-95 transition-transform"
               >
                 Abbrechen
               </Button>
@@ -225,7 +227,7 @@ export function CookieConsent() {
                 variant="primary"
                 size="md"
                 onClick={handleSaveSettings}
-                className="flex-1"
+                className="flex-1 touch-manipulation active:scale-95 transition-transform"
               >
                 Auswahl speichern
               </Button>
