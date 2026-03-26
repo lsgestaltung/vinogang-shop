@@ -86,13 +86,6 @@ export default function EventsPage() {
 
                 {/* Content */}
                 <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                  {/* Status Badge */}
-                  {event.status === "coming-soon" && (
-                    <span className="inline-block bg-gold/20 text-gold text-xs font-bold uppercase tracking-wider px-4 py-2 mb-6">
-                      Coming Soon
-                    </span>
-                  )}
-
                   {/* Date & Location */}
                   <div className="flex items-center gap-4 mb-4">
                     <span className="text-gold font-bold">{event.date}</span>
