@@ -16,9 +16,18 @@ export default function NewsletterPage() {
     setStatus("loading");
 
     try {
-      // TODO: Integrate with Klaviyo or Shopify Email
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      localStorage.setItem("vinogang-newsletter-subscribed", "true");
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to subscribe");
+      }
+
       setStatus("success");
       setEmail("");
     } catch {
