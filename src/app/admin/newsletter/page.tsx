@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 
 interface Subscriber {
   id: number;
@@ -10,13 +11,60 @@ interface Subscriber {
 }
 
 export default function NewsletterAdminPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
+  const [authError, setAuthError] = useState("");
+  const [authLoading, setAuthLoading] = useState(false);
+
   const [subscribers, setSubscribers] = useState<Subscriber[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchSubscribers();
+    // Check if already authenticated in session
+    const isAuth = sessionStorage.getItem("admin-authenticated");
+    if (isAuth === "true") {
+      setIsAuthenticated(true);
+      fetchSubscribers();
+    }
   }, []);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setAuthLoading(true);
+    setAuthError("");
+
+    try {
+      const response = await fetch("/api/admin/auth", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      const data = await response.json();
+
+      if (data.authenticated) {
+        setIsAuthenticated(true);
+        sessionStorage.setItem("admin-authenticated", "true");
+        setPassword("");
+        fetchSubscribers();
+      } else {
+        setAuthError("Falsches Passwort");
+      }
+    } catch (err) {
+      setAuthError("Authentifizierungsfehler");
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    sessionStorage.removeItem("admin-authenticated");
+    setSubscribers([]);
+  };
 
   const fetchSubscribers = async () => {
     try {
@@ -58,7 +106,67 @@ export default function NewsletterAdminPage() {
     document.body.removeChild(link);
   };
 
-  if (loading) {
+  // Login Screen
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
+        <div className="max-w-md w-full">
+          <div className="text-center mb-8">
+            <div className="w-16 h-16 mx-auto mb-6 border-2 border-gold flex items-center justify-center">
+              <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="square" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="w-8 h-px bg-gold" />
+              <span className="text-gold text-xs font-bold uppercase tracking-[0.3em]">
+                Admin
+              </span>
+              <div className="w-8 h-px bg-gold" />
+            </div>
+
+            <h1 className="text-3xl font-black mb-2">
+              Newsletter <span className="text-gold">Admin</span>
+            </h1>
+            <p className="text-white/60 text-sm">Bitte Passwort eingeben</p>
+          </div>
+
+          <form onSubmit={handleLogin} className="space-y-4">
+            <Input
+              type="password"
+              variant="dark"
+              placeholder="Passwort"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={authLoading}
+              required
+            />
+
+            {authError && (
+              <p className="text-red-500 text-sm">{authError}</p>
+            )}
+
+            <Button
+              type="submit"
+              variant="primary"
+              disabled={authLoading}
+              className="w-full"
+            >
+              {authLoading ? (
+                <span className="inline-block w-5 h-5 border-2 border-black border-t-transparent animate-spin" />
+              ) : (
+                "Anmelden"
+              )}
+            </Button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
+  // Loading Screen
+  if (loading && subscribers.length === 0) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center">
@@ -69,6 +177,7 @@ export default function NewsletterAdminPage() {
     );
   }
 
+  // Admin Dashboard
   return (
     <div className="min-h-screen bg-black text-white py-20">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -80,6 +189,9 @@ export default function NewsletterAdminPage() {
               Admin
             </span>
             <div className="flex-1 h-px bg-gold/20" />
+            <Button variant="outline" onClick={handleLogout} className="text-sm">
+              Abmelden
+            </Button>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-black mb-4">
@@ -88,7 +200,7 @@ export default function NewsletterAdminPage() {
 
           <div className="flex items-center gap-6 text-white/60">
             <p>{subscribers.length} Subscriber</p>
-            <Button variant="primary" onClick={exportToCSV}>
+            <Button variant="primary" onClick={exportToCSV} disabled={subscribers.length === 0}>
               Als CSV exportieren
             </Button>
             <Button variant="outline" onClick={fetchSubscribers}>
