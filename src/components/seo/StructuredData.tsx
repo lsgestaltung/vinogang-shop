@@ -44,7 +44,7 @@ export function OrganizationSchema() {
   );
 }
 
-// Product Schema for Wine & Clothing
+// Product Schema for Wine
 interface ProductSchemaProps {
   product: Product;
   url: string;

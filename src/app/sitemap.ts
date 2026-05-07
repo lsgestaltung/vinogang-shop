@@ -16,9 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Product pages
   const products = [
-    "/shop/barrel-shirt",
-    "/shop/reben-shirt",
-    "/shop/communion-shirt",
     "/shop/vinogang-la-fleur-rose-spatburgunder-2024",
   ];
 

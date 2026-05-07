@@ -65,32 +65,11 @@ const faqCategories = [
     ],
   },
   {
-    title: "Clothing",
-    questions: [
-      {
-        question: "Wie fallen eure Shirts aus?",
-        answer: "Unsere Shirts haben einen Regular Fit und fallen true to size aus. Im Zweifelsfall empfehlen wir, eine Größe größer zu bestellen für einen relaxteren Look.",
-      },
-      {
-        question: "Aus welchem Material sind die Shirts?",
-        answer: "Alle unsere Shirts bestehen aus 100% Premium-Baumwolle (180g/m²). Sie sind vorgewaschen, sodass sie ihre Form behalten und nicht einlaufen.",
-      },
-      {
-        question: "Wie wasche ich mein Vinogang Shirt?",
-        answer: "Wasche dein Shirt bei maximal 30°C auf links gedreht. Nicht in den Trockner geben und nicht bügeln auf dem Druck. So bleibt dein Shirt lange wie neu.",
-      },
-      {
-        question: "Sind die Designs limitiert?",
-        answer: "Ja, viele unserer Designs sind limitiert. Wenn ein Design ausverkauft ist, kommt es in der Regel nicht zurück. Also: zuschlagen, solange verfügbar!",
-      },
-    ],
-  },
-  {
     title: "Rückgabe & Umtausch",
     questions: [
       {
         question: "Kann ich Produkte zurückgeben?",
-        answer: "Ja, du hast 14 Tage Rückgaberecht. Clothing kann ungetragen und mit Etikett zurückgegeben werden. Bei Wein ist eine Rückgabe nur bei Transportschäden möglich.",
+        answer: "Ja, du hast 14 Tage Rückgaberecht. Bei Wein ist eine Rückgabe nur bei Transportschäden möglich.",
       },
       {
         question: "Wie funktioniert der Umtausch?",

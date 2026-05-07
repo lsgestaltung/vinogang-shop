@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 const filters = [
   { label: "Alle", value: "" },
   { label: "Wein", value: "wine" },
-  { label: "Clothing", value: "clothing" },
 ];
 
 export function CollectionFilter() {

@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 const navigation = [
   { name: "Shop", href: "/shop" },
   { name: "Wine", href: "/shop?collection=wine" },
-  { name: "Clothing", href: "/shop?collection=clothing" },
   { name: "Events", href: "/events" },
 ];
 
@@ -26,8 +25,6 @@ function NavigationLinks({ textColor, hoverColor, pathname }: { textColor: strin
         if (item.href === "/shop" && pathname === "/shop" && !currentCollection) {
           isActive = true;
         } else if (item.href === "/shop?collection=wine" && currentCollection === "wine") {
-          isActive = true;
-        } else if (item.href === "/shop?collection=clothing" && currentCollection === "clothing") {
           isActive = true;
         } else if (item.href === "/events" && pathname === "/events") {
           isActive = true;

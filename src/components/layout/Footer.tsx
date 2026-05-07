@@ -7,7 +7,6 @@ const footerLinks = {
   shop: [
     { name: "Alle Produkte", href: "/shop" },
     { name: "Wein", href: "/shop?collection=wine" },
-    { name: "Clothing", href: "/shop?collection=clothing" },
   ],
   company: [
     { name: "Events", href: "/events" },

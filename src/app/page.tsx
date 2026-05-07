@@ -1,13 +1,12 @@
 import { Hero } from "@/components/sections/Hero";
 import { Bestseller } from "@/components/sections/Bestseller";
-import { ClothingCTA } from "@/components/sections/ClothingCTA";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { EventsSection } from "@/components/sections/EventsSection";
 import { CommunitySection } from "@/components/sections/CommunitySection";
 import { getProducts } from "@/lib/shopify";
 
 export default async function HomePage() {
-  // Fetch products from Shopify (Wine only - Clothing is separate shop)
+  // Fetch products from Shopify
   let bestseller = null;
 
   try {
@@ -27,9 +26,6 @@ export default async function HomePage() {
 
       {/* Bestseller Section */}
       <Bestseller product={bestseller || undefined} />
-
-      {/* Clothing CTA - Full width landscape image */}
-      <ClothingCTA />
 
       {/* About Us / Founders Section */}
       <AboutSection />
